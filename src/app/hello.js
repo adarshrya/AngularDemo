@@ -2,7 +2,16 @@ angular
   .module('app')
   .component('app', {
     templateUrl: 'app/hello.html',
-    controller: function () {
-      this.hello = 'Hello World!';
+    controllerAs: 'MainCtrl',
+    transclude: true,
+    controller: function ($log, $scope) {
+      this.username = '';
+      this.password = '';
+      this.hello = 'Hello ';
+      this.allok = function () {
+        if ($scope.login.$valid) {
+          $log.log(this.username + ' ' + this.password);
+        }
+      };
     }
   });

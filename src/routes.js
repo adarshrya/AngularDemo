@@ -6,10 +6,11 @@ angular
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');
-  var helloState = {
-    name: 'hello',
-    url: '/hello',
-    template: '<h3>hello world!</h3>'
+  var ItemsState = {
+    name: 'items',
+    templateUrl: 'app/items.html',
+    url: '/items',
+    controller: 'Item.Controller'
   };
 
   var DefaultState = {
@@ -24,7 +25,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     template: '<h3>Its the UI-Router hello world app!</h3>'
   };
 
-  $stateProvider.state(helloState);
+  $stateProvider.state(ItemsState);
   $stateProvider.state(aboutState);
   $stateProvider.state(DefaultState);
 }
